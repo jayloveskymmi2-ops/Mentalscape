@@ -1,0 +1,7 @@
+{
+  "name": "Mind Realm 3D",
+  "description": "An interactive 3D mind cavern game with Super Tic-Tac-Toe AI/Room multiplayer, interactive MadLibs story generator, and mind intro sequence.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
