@@ -26,21 +26,22 @@ jobs:
       - name: Grant execute permission
         run: chmod +x gradlew
 
+      - name: Create .env file
+        run: echo "GEMINI_API_KEY=${{ secrets.GEMINI_API_KEY }}" > .env
+
       - name: Build APK
-        run: ./gradlew assembleRelease
-        env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: ./gradlew assembleDebug
 
       - name: Upload APK to artifacts
         uses: actions/upload-artifact@v4
         with:
           name: Mentalscape-APK
-          path: app/build/outputs/apk/release/app-release-unsigned.apk
+          path: app/build/outputs/apk/debug/app-debug.apk
 
       - name: Create Release
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "app/build/outputs/apk/release/app-release-unsigned.apk"
+          artifacts: "app/build/outputs/apk/debug/app-debug.apk"
           tag: v${{ github.run_number }}
           name: Build ${{ github.run_number }}
           body: "Automated APK build from commit ${{ github.sha }}"
