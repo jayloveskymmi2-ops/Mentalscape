@@ -19,7 +19,7 @@ local.properties
 debug.keystore
 debug.keystore.base64
 .build-outputs/
-*.apk
+.apk
 *.aab
 *.ap_
 
